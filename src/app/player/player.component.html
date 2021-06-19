@@ -1,0 +1,53 @@
+<style>
+    .player-container {
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        background-color: aqua;
+    }
+
+    .player {
+        display: flex;
+        margin: auto;
+        padding: 20px;
+    }
+
+    table, tr {
+        width: 80%;
+        border: 2px solid black;
+        border-collapse: collapse;
+        background-color: blue;
+        margin: auto;
+    }
+
+    td {
+        padding: 20px;
+    }
+    
+    .table-container  {
+        padding: 20px 0px;
+        display: flex;
+        width: 100%;
+        background-color: chartreuse;
+    }
+    
+</style>
+
+
+<div>
+    <div class="table-container">
+        <table>
+            <tr *ngFor="let s of songs; let i = index">
+                <td (click)="playSong(i)">{{s}}</td>
+            </tr>
+            
+        </table>
+    </div>
+
+    <div class="player-container">
+        <audio controls class="player" autoplay>
+            <source src={{currentSong}}>
+        </audio>
+        <h1>{{currentSong}}</h1>
+    </div>
+</div>
