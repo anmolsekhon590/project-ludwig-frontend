@@ -3,35 +3,48 @@
         width: 100%;
         position: fixed;
         bottom: 0;
-        background-color: aqua;
-    }
-
-    .player {
+        height: 60px;
+        background-color: #e4e4e4;
         display: flex;
-        margin: auto;
-        padding: 20px;
+        font-size: 1.3rem;
+        justify-content: center;
     }
 
-    table, tr {
+    .player-option {
+        height: 50px;
+        width: 50px;
+        margin: auto 0px;
+        background-color: white;
+        padding: 0 10px;
+    }
+    
+    table,
+    tr {
         width: 80%;
         border: 2px solid black;
         border-collapse: collapse;
-        background-color: blue;
         margin: auto;
     }
-
+    
     td {
         padding: 20px;
+        background-color: #f2f2f2;
     }
     
-    .table-container  {
+    .table-container {
         padding: 20px 0px;
         display: flex;
         width: 100%;
-        background-color: chartreuse;
+        /* background-color: chartreuse; */
     }
     
-</style>
+    .player-control-icon {
+        height: 100%;
+        transition: 2s ;
+        user-select: none;
+    }
+    
+    </style>
 
 
 <div>
@@ -40,14 +53,26 @@
             <tr *ngFor="let s of songs; let i = index">
                 <td (click)="playSong(i)">{{s}}</td>
             </tr>
-            
+
         </table>
     </div>
 
     <div class="player-container">
-        <audio controls class="player" autoplay>
-            <source src={{currentSong}}>
-        </audio>
-        <h1>{{currentSong}}</h1>
+        <div class="player-option" (click)="prevSong()">
+            <img class="player-control-icon" src="../../assets/images/player/skip_previous_black_24dp.svg">
+        </div>
+        
+        <div class="player-option" *ngIf="!isPlaying" (click)="resumeSong()">
+            <img class="player-control-icon" src="../../assets/images/player/play_arrow_black_24dp.svg">
+        </div>
+        
+        <div class="player-option" *ngIf="isPlaying" (click)="pauseSong()">
+            <img class="player-control-icon" src="../../assets/images/player/pause_black_24dp.svg">
+        </div>
+        
+        <div class="player-option" (click)="nextSong()">
+            <img class="player-control-icon" src="../../assets/images/player/skip_next_black_24dp.svg">
+        </div>
+        
     </div>
 </div>

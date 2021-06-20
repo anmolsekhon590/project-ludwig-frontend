@@ -14,12 +14,17 @@ export class FilesService {
 
   filenames: string[] = [];
 
-
-
   async getData() {
 
-    const res = await this.http.get<any>("http://192.168.0.146:8081/getAllFilenames").toPromise()
-        
+    // For remote testing
+    // let url = "http://97.108.97.207:8081/getAllFilenames";
+
+    // For local testing
+    let url = "http://192.168.0.146:8081/getAllFilenames";
+
+    const res = await this.http.get<any>(url).toPromise()
+
+
     return res
   }
 
