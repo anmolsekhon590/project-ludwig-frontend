@@ -17,7 +17,7 @@ export class FilesService {
   async getData() {
 
     // For remote testing
-    let url = "http://97.108.97.207:8081/getAllFilenames";
+    let url = "https://97.108.97.207:8081/getAllFilenames";
 
     // For local testing
     // let url = "http://192.168.0.146:8081/getAllFilenames";
