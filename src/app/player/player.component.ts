@@ -12,10 +12,10 @@ import { Output, EventEmitter } from '@angular/core';
 export class PlayerComponent implements OnInit {
 
   // For remote testing
-  // url: any = "http://97.108.97.207:8081/downloadFile/";
+  url: any = "http://97.108.97.207:8081/downloadFile/";
   
   // For local testing
-  url: any = "http://192.168.0.146:8081/downloadFile/";
+  // url: any = "http://192.168.0.146:8081/downloadFile/";
 
   songs = "";
   currentSong = "";
