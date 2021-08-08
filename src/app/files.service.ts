@@ -17,10 +17,10 @@ export class FilesService {
   async getData() {
 
     // For remote testing
-    let url = "https://99.244.63.14:8081/getAllFilenames";
+    let url = "http://99.244.63.14:8081/getAllFilenames";
 
     // For local testing
-    // let url = "http://192.168.0.146:8081/getAllFilenames";
+    // let url = "http://10.0.0.1:8081/getAllFilenames";
 
     const res = await this.http.get<any>(url).toPromise()
 
